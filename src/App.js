@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { addTodo } from './redux/reducers/todos/todos.actions-creators';
-import './App.css';
+import './App.scss';
 
 const App = ({state, handleAddToDo}) => (
     <div className="App">
@@ -14,7 +14,7 @@ const App = ({state, handleAddToDo}) => (
       {console.log('app :', state, ' and ', handleAddToDo)}
 
       <ul>
-        <li>item</li>
+        {state.map(item => <li key={item.id}>{item.text}</li>)}
       </ul>
 
       <div>
