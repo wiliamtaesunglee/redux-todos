@@ -1,6 +1,6 @@
 import { ADD_TODOS, TOGGLE_TODOS } from './todos.actions';
 
-const reducerTodos = (state, action) => {
+const reducerTodos = (state = [], action) => {
   switch(action.type) {
     case ADD_TODOS:
       return state.concat({

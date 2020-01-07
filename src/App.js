@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+
+import { addTodo } from './redux/reducers/todos/todos.actions-creators';
 import './App.css';
 
-function App() {
-  return (
+const App = ({state, handleAddToDo}) => (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={handleAddToDo}>
+        <input type='text' name='todo'/>
+        <button type='submit'>Adicionar</button>
+      </form>
+
+      {console.log('app :', state, ' and ', handleAddToDo)}
+
+      <ul>
+        <li>item</li>
+      </ul>
+
+      <div>
+        <h3>Mostrar</h3>
+        <span>Todos</span> | <span>Finalizados</span> | <span>A fazer</span>
+      </div>
     </div>
   );
-}
 
-export default App;
+const mapStateToProps = (state) => ({
+  state
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  handleAddToDo: (e) =>  {
+    e.preventDefault()
+    dispatch(addTodo(e.target.todo.value))
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

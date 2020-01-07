@@ -9,7 +9,9 @@ import * as serviceWorker from './serviceWorker';
 import reducerTodos from './redux/reducers/todos/todos.component';
 
 const store = createStore(reducerTodos);
-console.log('sotore: ',store);
+
+console.log('sotore: ', store);
+
 ReactDOM.render(
   <Provider store={store}>
     <App/>
