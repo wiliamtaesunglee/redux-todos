@@ -32,6 +32,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleAddToDo: (e) =>  {
     e.preventDefault()
     dispatch(addTodo(e.target.todo.value))
+    e.target.todo.value = '';
   }
 })
 
