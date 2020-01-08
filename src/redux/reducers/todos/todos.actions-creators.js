@@ -9,9 +9,9 @@ export const addTodo = (text) => ({
   }
 })
 
-export const toggleTodo = (item) => ({
+export const toggleTodo = (id) => ({
   type: TOGGLE_TODOS,
   payload: {
-    id: item.id
+    id
   }
 })

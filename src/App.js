@@ -1,20 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo } from './redux/reducers/todos/todos.actions-creators';
+import { addTodo, toggleTodo } from './redux/reducers/todos/todos.actions-creators';
 import './App.scss';
 
-const App = ({state, handleAddToDo}) => (
+const App = ({state, handleAddToDo, handleToggleTodo}) => (
     <div className="App">
       <form onSubmit={handleAddToDo}>
         <input type='text' name='todo'/>
         <button type='submit'>Adicionar</button>
       </form>
 
-      {console.log('app :', state, ' and ', handleAddToDo)}
-
       <ul>
-        {state.map(item => <li className={item.completed ? 'completed' : null} key={item.id}>{item.text}</li>)}
+        {state.map(item => <li onClick={handleToggleTodo(item.id)} className={item.completed ? 'completed' : null} key={item.id}>{item.text}</li>)}
       </ul>
 
       <div>
@@ -33,7 +31,8 @@ const mapDispatchToProps = (dispatch) => ({
     e.preventDefault()
     dispatch(addTodo(e.target.todo.value))
     e.target.todo.value = '';
-  }
+  },
+  handleToggleTodo: (id) => (e) => dispatch(toggleTodo(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

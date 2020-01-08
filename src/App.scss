@@ -5,13 +5,15 @@
   width:50%;
   text-align:center;
 
+    .completed {
+      text-decoration: line-through;
+    }
+
     form {
       display:flex;
       flex-direction: column;
 
-      .completed {
-        text-decoration: line-through;
-      }
+
     input {
       height: 20px;
       border: 1px solid black;
