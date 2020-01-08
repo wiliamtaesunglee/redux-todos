@@ -14,7 +14,7 @@ const App = ({state, handleAddToDo}) => (
       {console.log('app :', state, ' and ', handleAddToDo)}
 
       <ul>
-        {state.map(item => <li key={item.id}>{item.text}</li>)}
+        {state.map(item => <li className={item.completed ? 'completed' : null} key={item.id}>{item.text}</li>)}
       </ul>
 
       <div>
