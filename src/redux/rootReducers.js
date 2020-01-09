@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import reducerVisibilityFilter from './visibitily-filter/visibility-filter.component';
+import reducerVisibilityFilter from './reducers/visibility-filter/visibility-filter.component';
 import reducerTodos from './reducers/todos/todos.component';
 
 export default combineReducers({
