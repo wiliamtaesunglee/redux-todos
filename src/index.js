@@ -6,9 +6,15 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducerTodos from './redux/reducers/todos/todos.component';
+import rootReducer from './redux/rootReducers';
 
-const store = createStore(reducerTodos);
+const store = createStore(rootReducer);
+
+console.log(store.getState())
+
+store.subscribe(() => {
+  console.log(store.getState())
+})
 
 console.log('sotore: ', store);
 

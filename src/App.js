@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addTodo, toggleTodo } from './redux/reducers/todos/todos.actions-creators';
 import './App.scss';
 
-const App = ({state, handleAddToDo, handleToggleTodo}) => (
+const App = ({todos, handleAddToDo, handleToggleTodo}) => (
     <div className="App">
       <form onSubmit={handleAddToDo}>
         <input type='text' name='todo'/>
@@ -12,7 +12,7 @@ const App = ({state, handleAddToDo, handleToggleTodo}) => (
       </form>
 
       <ul>
-        {state.map(item => <li onClick={handleToggleTodo(item.id)} className={item.completed ? 'completed' : null} key={item.id}>{item.text}</li>)}
+        {todos.map(item => <li onClick={handleToggleTodo(item.id)} className={item.completed ? 'completed' : null} key={item.id}>{item.text}</li>)}
       </ul>
 
       <div>
@@ -23,7 +23,7 @@ const App = ({state, handleAddToDo, handleToggleTodo}) => (
   );
 
 const mapStateToProps = (state) => ({
-  state
+  todos: state.reducerTodos
 })
 
 const mapDispatchToProps = (dispatch) => ({

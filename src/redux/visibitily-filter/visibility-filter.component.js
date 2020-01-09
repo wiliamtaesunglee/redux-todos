@@ -1,4 +1,4 @@
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVES, SET_VISIBILITY_FILTER } from './visibility-filter.actions';
+import { SHOW_ALL, SET_VISIBILITY_FILTER } from './visibility-filter.actions';
 
 export const initialState = SHOW_ALL;
 
